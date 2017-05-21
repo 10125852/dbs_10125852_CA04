@@ -5,10 +5,14 @@ author: 10125852 InSun Ahn
 
 """
 
-# Open the log file to process.
+# Define function to read a file, to strip whitespaces and trim the line.
+def read_file(my_file):
+    data = [line.strip() for line in open(my_file, 'r')]
+    return data
+
+# Open the log file to process and feed into the function to strip lines.
 my_file = 'changes_python.log'
-# Read all lines and strip whitespaces and trim the line.
-data = [line.strip() for line in open(my_file, 'r')]
+data = read_file(my_file)
 
 # Output data as csv file to check index of each element.
 import csv
@@ -16,16 +20,10 @@ with open("data_output.csv", "wb") as cfile:
     mywriter = csv.writer(cfile)
     mywriter.writerow(data)
 
-
-# print the number of lines read.
-print(len(data))
-
-# Define separater between each commit which is 72 -s.
-sep = 72*'-'
-
-
 # Define fucntion to iterate over the file and aggregate commit details.
 def get_commits(data):
+    # Define separater between each commit which is 72 -s.
+    sep = 72*'-'
     commits = []
     index = 0
     while index < len(data):
