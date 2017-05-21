@@ -52,13 +52,19 @@ commits = get_commits(data)
 
 
 if __name__ == '__main__':
+    
+    # Print the total number of lines in data.
+    print len(data)
+    
+    # Print the number of commit objects the list contains. It should be 422.
+    print len(commits)
+    
+    # Print to see 1st, 2nd and 3rd elements in commits list. 
+    # Print only specific keys for 2nd and 3rd elements/dictionaries.
     print(commits[0])
     print(commits[1]["author"])
     print(commits[2]["date"])
-    
-    # Check whether the list contains 422 commit objects.
-    print len(commits)
-
+  
 
 # Export commits list in a csv format.
 import csv
