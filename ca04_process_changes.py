@@ -68,8 +68,8 @@ with open("test_output01.csv", "w") as cfile:
     mywriter = csv.DictWriter(cfile, fieldnames = header, delimiter=',', lineterminator='\n',)
     # Give a header to the file with set keys.
     mywriter.writeheader()
+    # Iterate over the list and add each commit object as a row to the file.
     index = 0
-   
     while index < len(commits):
         mywriter.writerow(commits[index])
         index = index + 1
