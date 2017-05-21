@@ -39,7 +39,7 @@ def get_commits(data):
             commit = {'revision': details[0].strip().strip('r'),
                 'author': details[1].strip(),
                 'date': details[2].strip(),
-                'number_of_lines': details[3].strip().split(' ')[0],
+                'number_of__comment_lines': details[3].strip().split(' ')[0],
                 'comment': tails[-1]}
             # Append commit dictionaries in list of commits.
             commits.append(commit)
@@ -64,8 +64,8 @@ if __name__ == '__main__':
 
 # Export commits list in a csv format.
 import csv
-with open("test_output01.csv", "w") as cfile:
-    header = ["revision", "date", "author", "number_of_lines", "comment"]
+with open("commits.csv", "w") as cfile:
+    header = ["revision", "date", "author", "number_of__comment_lines", "comment"]
     mywriter = csv.DictWriter(cfile, fieldnames = header, delimiter=',', lineterminator='\n',)
     # Give a header to the file with set keys.
     mywriter.writeheader()
